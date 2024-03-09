@@ -92,7 +92,7 @@ export default function Cards() {
     <div className="grid w-full gap-10 gap-y-0 pt-48 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20 md:grid-cols-3 lg:grid-cols-5">
       <div className="text-center">
         <h2 className="text-2xl font-bold tracking-tight">
-          Hover over a card to reveal your its meaning.
+          Hover over a card to reveal its meaning.
         </h2>
       </div>
       {cards.map((card, index) => (
