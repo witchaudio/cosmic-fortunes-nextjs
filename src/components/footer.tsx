@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container flex flex-wrap items-center justify-center gap-4 px-4 py-8 md:py-10 lg:px-6 xl:px-8 2xl:px-10">
         <nav className="flex justify-center items-center gap-4 text-center">
           <Link className="text-sm font-semibold tracking-wider text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="/">Home</Link>
-          <Link className="text-sm font-semibold tracking-wider text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="/about">About Us</Link>
+          <Link className="text-sm font-semibold tracking-wider text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="/about">About</Link>
           <Link className="text-sm font-semibold tracking-wider text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" href="/contact">Contact</Link>
         </nav>
         <div className="flex items-center justify-center gap-2 md:gap-4 xl:gap-6">

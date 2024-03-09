@@ -107,7 +107,7 @@ export default function Reading() {
   };
 
   return (
-    <div className="px-4 py-12 md:py-24 lg:py-32">
+    <div className="px-4 py-12 md:py-24 lg:py-32 pt-16">
       <div className="container mx-auto text-center mb-8">
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Get a Full Tarot Reading
@@ -132,7 +132,7 @@ export default function Reading() {
       </div>
       {showCards && (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto px-4 pb-10">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto px-4 pb-10 min-h-screen sm:min-h-0 justify-items-center">
             {selectedCards.map((card, index) => (
               <div
                 key={index}
