@@ -106,7 +106,8 @@ export default function Tarot() {
             Click a button to reveal your tarot card.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-4 ">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:grid md:grid-cols-3 md:justify-items-center">
+
           <Button size="lg" variant="outline" onClick={showRandomCard}>
             <FishSymbolIcon />
             Aries

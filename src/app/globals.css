@@ -42,3 +42,15 @@ body {
 .hover\:border-gradient:hover {
   border-image-source: linear-gradient(to right, #7b2ff7, #5a189a); /* Adjust your gradient colors here */
 }
+
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+

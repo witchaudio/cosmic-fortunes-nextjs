@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react';
 import {
   HoverCardTrigger,
   HoverCardContent,
@@ -28,22 +30,7 @@ const cards = [
   "/assets/sun.jpg",
   "/assets/judgment.jpg",
   "/assets/world1.jpg",
-  "/assets/cups-page.jpg",
-  "/assets/cups-knight.jpg",
-  "/assets/cups-queen.jpg",
-  "/assets/cups-king.jpg",
-  "/assets/swords-page.jpg",
-  "/assets/swords-knight.jpg",
-  "/assets/swords-queen.jpg",
-  "/assets/swords-king.jpg",
-  "/assets/pentacles-page.jpg",
-  "/assets/pentacles-knight.jpg",
-  "/assets/pentacles-queen.jpg",
-  "/assets/pentacles-king.jpg",
-  "/assets/wands-page.jpg",
-  "/assets/wands-knight.jpg",
-  "/assets/wands-queen.jpg",
-  "/assets/wands-king.jpg",
+  
 ];
 
 const cardDescriptions = [
@@ -69,54 +56,43 @@ const cardDescriptions = [
   "THE SUN (positivity, warmth, success, and vitality.)",
   "JUDGMENT (rebirth, inner calling, and absolution.)",
   "THE WORLD (completion, integration, accomplishment, and travel.)",
-  "THE PAGE OF CUPS (creative opportunities, curiosity, and possibility.)",
-  "THE KNIGHT OF CUPS (creativity, romance, charm, and imagination.)",
-  "THE QUEEN OF CUPS (compassionate, caring, and flow.)",
-  "THE KING OF CUPS (emotional balance, and diplomacy.)",
-  "THE PAGE OF SWORDS (new ideas, thirst for knowledge, and new ways of communicating.)",
-  "THE KNIGHT OF SWORDS (action-oriented, driven to succeed, and fast thinking.)",
-  "THE QUEEN OF SWORDS (independent, unbiased judgement, and clear boundaries.)",
-  "THE KING OF SWORDS (mental clarity, intellectual clarity, power, and authority.)",
-  "THE PAGE OF PENTACLES (manifestation, financial opportunity, and skill development.)",
-  "THE KNIGHT OF PENTACLES (hard work, productivity, and conservatism.)",
-  "THE QUEEN OF PENTACLES (nurturing, practical, and providing financially.)",
-  "THE KING OF PENTACLES (wealth, business, leadership, and abundance.)",
-  "THE PAGE OF WANDS (inspirations, ideas, and free spirit.)",
-  "THE KNIGHT OF WANDS (energy, passion, adventure, and impulsiveness.)",
-  "THE QUEEN OF WANDS (courage, confidence, and determination.)",
-  "THE KING OF WANDS (natural-born leader, vision, and honor.)",
+  
 ];
 
 export default function Cards() {
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (index:any) => {
+    setSelectedCard(index === selectedCard ? null : index); // Toggle the selected card
+  };
+  
   return (
-    <div className="grid w-full gap-10 gap-y-0 pt-48 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20 md:grid-cols-3 lg:grid-cols-5">
+    <div className="grid w-full gap-10 gap-y-0 pt-48 px-4 sm:px-4 md:px-8 lg:px-10 xl:px-20 md:grid-cols-3 lg:grid-cols-5">
       <div className="text-center">
         <h2 className="text-2xl font-bold tracking-tight">
-          Hover over a card to reveal its meaning.
+          Click on a card to reveal its meaning.
         </h2>
       </div>
       {cards.map((card, index) => (
-        <HoverCard key={index}>
-          <div className="relative aspect-[2/5] overflow-hidden rounded-lg shadow-card">
-            <HoverCardTrigger asChild>
-              <Image
-                alt={`Card ${index}`}
-                className="object-cover w-full h-full"
-                height={450}
-                src={card}
-                layout="responsive"
-                objectFit="cover"
-                width={200}
-              />
-            </HoverCardTrigger>
-            <HoverCardContent className=" bg-white ">
+        <div key={index} className="relative overflow-hidden rounded-lg shadow-card aspect-[1/2] sm:aspect-[2/3] md:aspect-[2/5]" onClick={() => handleCardClick(index)}>
+          <Image
+            alt={`Card ${index}`}
+            className="object-cover w-full h-full"
+            src={card}
+            layout="responsive"
+            width={160}
+            height={320}
+          />
+          {selectedCard === index && (
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-2">
               <p className="text-sm text-gray-500 dark:text-gray-300">
                 {cardDescriptions[index]}
               </p>
-            </HoverCardContent>
-          </div>
-        </HoverCard>
+            </div>
+          )}
+        </div>
       ))}
     </div>
   );
 }
+
